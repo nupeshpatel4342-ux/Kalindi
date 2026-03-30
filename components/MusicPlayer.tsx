@@ -5,6 +5,7 @@ import React, { useState, useRef, useEffect } from 'react';
 export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const audioSource = '/music.mp3';
 
   useEffect(() => {
     if (audioRef.current) {
@@ -47,7 +48,7 @@ export default function MusicPlayer() {
       </button>
       <audio 
         ref={audioRef} 
-        src="https://docs.google.com/uc?export=download&id=1OyorNkkkw7hqokJZ1JrXr96uVSSGwPgT" 
+        src={audioSource}
         loop 
       />
     </div>
