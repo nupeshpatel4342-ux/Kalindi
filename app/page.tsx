@@ -1,21 +1,15 @@
 import Image from 'next/image';
+import ScratchCard from '@/components/ScratchCard';
+import PlaneMessageButton from '@/components/PlaneMessageButton';
+import MusicPlayer from '@/components/MusicPlayer';
 
 export default function Page() {
   return (
     <>
       {/* TopAppBar */}
       <header className="fixed top-0 w-full z-50 bg-[#fbf9f1]/80 backdrop-blur-xl shadow-[0_40px_40px_-15px_rgba(27,28,23,0.06)]">
-        <nav className="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+        <nav className="flex justify-center items-center w-full px-8 py-4 max-w-7xl mx-auto">
           <div className="text-2xl font-headline italic text-primary">For Kalindi</div>
-          <div className="hidden md:flex gap-8 items-center">
-            <a className="text-primary font-semibold border-b-2 border-primary pb-1 font-headline italic tracking-tight hover:scale-105 transition-transform duration-300" href="#hero">Our Story</a>
-            <a className="text-on-surface-variant hover:text-primary transition-colors font-headline italic tracking-tight hover:scale-105 transition-transform duration-300" href="#gallery">Gallery</a>
-            <a className="text-on-surface-variant hover:text-primary transition-colors font-headline italic tracking-tight hover:scale-105 transition-transform duration-300" href="#tributes">Tributes</a>
-            <a className="text-on-surface-variant hover:text-primary transition-colors font-headline italic tracking-tight hover:scale-105 transition-transform duration-300" href="#message">Message</a>
-          </div>
-          <button className="md:hidden text-primary">
-            <span className="material-symbols-outlined" data-icon="menu">menu</span>
-          </button>
         </nav>
       </header>
       <main>
@@ -43,9 +37,7 @@ export default function Page() {
                 જન્મદિવસની ખૂબ ખૂબ શુભેચ્છાઓ
               </p>
               <div className="flex flex-wrap gap-6 pt-4">
-                <a className="bg-silk-ribbon text-on-primary px-10 py-4 rounded-full font-semibold hover:scale-105 transition-all shadow-lg flex items-center gap-2" href="#message">
-                  Read the Message <span className="material-symbols-outlined" data-icon="favorite" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
-                </a>
+                <PlaneMessageButton />
                 <a className="bg-surface-container-lowest border border-outline-variant/30 text-primary px-10 py-4 rounded-full font-semibold hover:scale-105 transition-all" href="#gallery">
                   View Gallery
                 </a>
@@ -55,8 +47,8 @@ export default function Page() {
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-700 relative">
                 <Image 
                   className="object-cover" 
-                  alt="Elegant celebration table with rose gold decorations, candles, and delicate flowers in a bright sunlit room" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeQ_4_6fBcL9Awi3auPxc9l0x6jfG1hmhpswSI-454qtDCN410qRAPOzRn-UjuwHdhhS2lwbcnSW17V1uH3Dr8PO931L2_O5wJl62ztXiP5KLtsPBTJU8MPNFHNslBsnJ17XvPlcktNwWrkoreSf6BtT8166wjH_qJrO1jw26Nm2kdl-igSkYGDE-ZfUZpDmDbUMX-iXiNhSJt9NAUIQyz2B0F33HBTZ_fJUYs8HbrGnD_fvzC_lVqbYONPnn9uZVLZ1TrGR1V4qrl"
+                  alt="Beautiful portrait of Kalindi" 
+                  src="https://i.ibb.co/fz72q9bc/Pics-Art-09-06-06-15-24.png"
                   fill
                   referrerPolicy="no-referrer"
                 />
@@ -79,61 +71,73 @@ export default function Page() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
               {/* Polaroid 1 */}
               <div className="bg-surface-container-lowest p-5 pb-16 shadow-lg rotate-2 hover:rotate-0 transition-all duration-500 hover:-translate-y-4 hover:shadow-primary/30 group relative">
-                <div className="aspect-square overflow-hidden rounded-md mb-6 relative">
-                  <Image 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                    alt="Beautiful couple selfie in blue outfits" 
-                    src="https://picsum.photos/seed/love1/800/800"
-                    fill
-                    unoptimized
-                    referrerPolicy="no-referrer"
-                  />
-                  {/* Love Animation Overlay */}
-                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
-                    <span className="material-symbols-outlined text-primary absolute bottom-4 left-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
-                    <span className="material-symbols-outlined text-primary absolute bottom-1/4 right-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '0.5s', fontSize: '1.5rem' }}>favorite</span>
-                    <span className="material-symbols-outlined text-primary absolute bottom-1/2 left-1/2 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '1s', fontSize: '2rem' }}>favorite</span>
-                  </div>
+                {/* Birthday Sticker */}
+                <div className="absolute -top-4 -right-4 z-30 bg-gradient-to-tr from-pink-500 to-red-500 text-white font-bold text-xs px-4 py-2 rounded-full shadow-xl transform rotate-12 animate-bounce border-2 border-white">
+                  Happy Birthday My Love! 🎂
+                </div>
+                <div className="overflow-hidden rounded-md mb-6 relative">
+                  <ScratchCard>
+                    <img 
+                      className="w-full h-auto group-hover:scale-110 transition-transform duration-700" 
+                      alt="Beautiful couple selfie in blue outfits" 
+                      src="https://i.ibb.co/Lhq3M83G/Matching-Evening-Attire.png"
+                      referrerPolicy="no-referrer"
+                    />
+                    {/* Love Animation Overlay */}
+                    <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                      <span className="material-symbols-outlined text-primary absolute bottom-4 left-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+                      <span className="material-symbols-outlined text-primary absolute bottom-1/4 right-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '0.5s', fontSize: '1.5rem' }}>favorite</span>
+                      <span className="material-symbols-outlined text-primary absolute bottom-1/2 left-1/2 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '1s', fontSize: '2rem' }}>favorite</span>
+                    </div>
+                  </ScratchCard>
                 </div>
                 <p className="font-headline text-center text-on-surface-variant italic text-lg">Where it all began...</p>
               </div>
               {/* Polaroid 2 */}
               <div className="bg-surface-container-lowest p-5 pb-16 shadow-lg -rotate-1 hover:rotate-0 transition-all duration-500 hover:-translate-y-4 hover:shadow-primary/30 group lg:mt-12 relative">
-                <div className="aspect-square overflow-hidden rounded-md mb-6 relative">
-                  <Image 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                    alt="Elegant formal couple portrait" 
-                    src="https://picsum.photos/seed/love2/800/800"
-                    fill
-                    unoptimized
-                    referrerPolicy="no-referrer"
-                  />
-                  {/* Love Animation Overlay */}
-                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
-                    <span className="material-symbols-outlined text-primary absolute bottom-4 left-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
-                    <span className="material-symbols-outlined text-primary absolute bottom-1/4 right-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '0.5s', fontSize: '1.5rem' }}>favorite</span>
-                    <span className="material-symbols-outlined text-primary absolute bottom-1/2 left-1/2 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '1s', fontSize: '2rem' }}>favorite</span>
-                  </div>
+                {/* Birthday Sticker */}
+                <div className="absolute -top-4 -left-4 z-30 bg-gradient-to-tr from-red-500 to-pink-500 text-white font-bold text-xs px-4 py-2 rounded-full shadow-xl transform -rotate-12 animate-bounce border-2 border-white" style={{ animationDelay: '200ms' }}>
+                  Happy Birthday My Love! 🎉
+                </div>
+                <div className="overflow-hidden rounded-md mb-6 relative">
+                  <ScratchCard>
+                    <img 
+                      className="w-full h-auto group-hover:scale-110 transition-transform duration-700" 
+                      alt="Elegant formal couple portrait" 
+                      src="https://i.ibb.co/DDkp0hG6/Pics-Art-07-24-07-38-57.jpg"
+                      referrerPolicy="no-referrer"
+                    />
+                    {/* Love Animation Overlay */}
+                    <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                      <span className="material-symbols-outlined text-primary absolute bottom-4 left-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+                      <span className="material-symbols-outlined text-primary absolute bottom-1/4 right-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '0.5s', fontSize: '1.5rem' }}>favorite</span>
+                      <span className="material-symbols-outlined text-primary absolute bottom-1/2 left-1/2 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '1s', fontSize: '2rem' }}>favorite</span>
+                    </div>
+                  </ScratchCard>
                 </div>
                 <p className="font-headline text-center text-on-surface-variant italic text-lg">Every moment is a gift.</p>
               </div>
               {/* Polaroid 3 */}
               <div className="bg-surface-container-lowest p-5 pb-16 shadow-lg rotate-3 hover:rotate-0 transition-all duration-500 hover:-translate-y-4 hover:shadow-primary/30 group relative">
-                <div className="aspect-square overflow-hidden rounded-md mb-6 relative">
-                  <Image 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                    alt="Lovely couple in traditional and casual wear" 
-                    src="https://picsum.photos/seed/love3/800/800"
-                    fill
-                    unoptimized
-                    referrerPolicy="no-referrer"
-                  />
-                  {/* Love Animation Overlay */}
-                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
-                    <span className="material-symbols-outlined text-primary absolute bottom-4 left-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
-                    <span className="material-symbols-outlined text-primary absolute bottom-1/4 right-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '0.5s', fontSize: '1.5rem' }}>favorite</span>
-                    <span className="material-symbols-outlined text-primary absolute bottom-1/2 left-1/2 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '1s', fontSize: '2rem' }}>favorite</span>
-                  </div>
+                {/* Birthday Sticker */}
+                <div className="absolute -top-5 right-4 z-30 bg-gradient-to-tr from-rose-400 to-red-500 text-white font-bold text-xs px-4 py-2 rounded-full shadow-xl transform rotate-6 animate-bounce border-2 border-white" style={{ animationDelay: '400ms' }}>
+                  Happy Birthday My Love! ❤️
+                </div>
+                <div className="overflow-hidden rounded-md mb-6 relative">
+                  <ScratchCard>
+                    <img 
+                      className="w-full h-auto group-hover:scale-110 transition-transform duration-700" 
+                      alt="Lovely couple in traditional and casual wear" 
+                      src="https://i.ibb.co/mVH77PrL/Snapchat-863882935.jpg"
+                      referrerPolicy="no-referrer"
+                    />
+                    {/* Love Animation Overlay */}
+                    <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                      <span className="material-symbols-outlined text-primary absolute bottom-4 left-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+                      <span className="material-symbols-outlined text-primary absolute bottom-1/4 right-4 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '0.5s', fontSize: '1.5rem' }}>favorite</span>
+                      <span className="material-symbols-outlined text-primary absolute bottom-1/2 left-1/2 animate-float-up" style={{ fontVariationSettings: "'FILL' 1", animationDelay: '1s', fontSize: '2rem' }}>favorite</span>
+                    </div>
+                  </ScratchCard>
                 </div>
                 <p className="font-headline text-center text-on-surface-variant italic text-lg">That smile I love so much.</p>
               </div>
@@ -233,6 +237,7 @@ export default function Page() {
           </div>
         </div>
       </footer>
+      <MusicPlayer />
     </>
   );
 }
