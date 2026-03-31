@@ -31,6 +31,7 @@ export default function Page() {
   const [typedText, setTypedText] = useState('');
   const [surpriseOpen, setSurpriseOpen] = useState(false);
   const [confettiBurst, setConfettiBurst] = useState(false);
+  const [playSignal, setPlaySignal] = useState(0);
 
   useEffect(() => {
     let index = 0;
@@ -71,6 +72,7 @@ export default function Page() {
   const openSurprise = () => {
     setSurpriseOpen(true);
     setConfettiBurst(true);
+    setPlaySignal((prev) => prev + 1);
     window.setTimeout(() => setConfettiBurst(false), 2200);
   };
 
@@ -234,7 +236,7 @@ export default function Page() {
         </div>
       )}
 
-      <MusicPlayer />
+      <MusicPlayer playSignal={playSignal} />
     </>
   );
 }
