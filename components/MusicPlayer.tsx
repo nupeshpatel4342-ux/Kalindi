@@ -2,16 +2,29 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 
-export default function MusicPlayer() {
+type MusicPlayerProps = {
+  playSignal?: number;
+};
+
+export default function MusicPlayer({ playSignal = 0 }: MusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const audioSource = '/music.mp3';
+  const audioSource = '/mari_jaan.mp3';
 
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.3; // Keep it subtle
     }
   }, []);
+
+  useEffect(() => {
+    if (!playSignal || !audioRef.current) return;
+
+    audioRef.current
+      .play()
+      .then(() => setIsPlaying(true))
+      .catch((e) => console.log('Audio play failed:', e));
+  }, [playSignal]);
 
   const togglePlay = () => {
     if (audioRef.current) {
